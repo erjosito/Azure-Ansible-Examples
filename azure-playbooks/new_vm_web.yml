@@ -4,9 +4,10 @@
   gather_facts: False
   vars:
     # vmname: josetestansible03
-    # Variable 'vmname' needs to be provided at command line with arg --extra-vars
-    resgrp: PermanentLab
+    # resgrp: PermanentLab
+    # Variables 'vmname' and 'resgrp' need to be provided at command line with arg --extra-vars
     dnsname: '{{ vmname }}.westeurope.cloudapp.azure.com'
+    # The DNS name might not be right depending on your region!!
     ip: "{{ lookup ('dig', '{{ dnsname }}') }}"
    
   tasks:
