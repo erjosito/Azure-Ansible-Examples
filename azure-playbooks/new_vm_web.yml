@@ -47,7 +47,7 @@
     azure_rm_networkinterface:
       resource_group: '{{ resgrp }}'
       name: '{{ vmname }}'
-      virtual_network: PermanentLab-vnet
+      virtual_network: '{{ resgrp }}-vnet'
       subnet: default
       public_ip_name: '{{ vmname }}'
       security_group: '{{ vmname }}'
