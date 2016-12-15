@@ -5,7 +5,8 @@
   vars:
     # vmname: josetestansible03
     # resgrp: PermanentLab
-    # Variables 'vmname' and 'resgrp' need to be provided at command line with arg --extra-vars
+    # vnet: PermanentLab-vnet
+    # Variables 'vnet', 'vmname' and 'resgrp' need to be provided at command line with arg --extra-vars
     dnsname: '{{ vmname }}.westeurope.cloudapp.azure.com'
     # The DNS name might not be right depending on your region!!
     ip: "{{ lookup ('dig', '{{ dnsname }}') }}"
@@ -47,7 +48,7 @@
     azure_rm_networkinterface:
       resource_group: '{{ resgrp }}'
       name: '{{ vmname }}'
-      virtual_network: '{{ resgrp }}-vnet'
+      virtual_network: '{{ vnet }}'
       subnet: default
       public_ip_name: '{{ vmname }}'
       security_group: '{{ vmname }}'
